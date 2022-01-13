@@ -1,0 +1,128 @@
+.layout {
+    min-height: 100vh;
+  }
+
+  .logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 0;
+    float: left;
+  }
+
+  nz-header {
+    position: fixed;
+    width: 100%;
+  }
+
+  [nz-menu] {
+    line-height: 64px;
+  }
+
+  nz-content {
+    padding: 0 50px;
+    margin-top: 64px;
+  }
+
+  nz-breadcrumb {
+    margin: 16px 0;
+  }
+
+  .inner-content {
+    background: #fff;
+    padding: 24px;
+    min-height: 380px;
+  }
+
+  nz-footer {
+    text-align: center;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  [nz-carousel-content] {
+    text-align: center;
+    background-image: url("https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    color: #fff;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px;
+  }
+
+  h3 {
+    color: #fff;
+    margin-bottom: 0;
+    user-select: none;
+  }
+
+  .count {
+    padding-left: 8px;
+    cursor: auto;
+  }
+  .ant-comment-rtl .count {
+    padding-right: 8px;
+    padding-left: 0;
+  }
+
+  body{
+    font-family: 'Montserrat', sans-serif;
+    margin:0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+  .btn {
+    flex: 1 1 auto;
+    margin: 10px;
+    padding: 20px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    border: 0px;
+   }
+  
+  /* Demo Stuff End -> */
+  
+  /* <- Magic Stuff Start */
+  
+  .btn:hover {
+    background-position: right center; /* change the direction of the change here */
+  }
+  
+  .btn-1 {
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+  }
+  
+  .btn-2 {
+    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2c2 100%);
+  }
+  
+  .btn-3 {
+    background-image: linear-gradient(to right, #db1270 0%, #d78ff4 51%, #6f02b8 100%);
+  }
+  
+  .btn-4 {
+    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+  }
+  
+  .btn-5 {
+    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
+  }
+  
+  /* Magic Stuff End -> */

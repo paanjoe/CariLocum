@@ -1,0 +1,109 @@
+<nz-layout class="layout">
+    <nz-header style="z-index: 1;">
+      <div class="logo"></div>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        <li nz-menu-item>Support CariLocum</li>
+        <li nz-menu-item>About</li>
+        <li nz-menu-item>Contact Us</li>
+      </ul>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+          <!-- Carousel Section Start -->
+          <section class="text-center" name="Carousel">
+            <nz-carousel [nzEffect]="effect">
+              <div nz-carousel-content>
+              </div>
+            </nz-carousel>
+          </section>
+          <!-- Carousel Section End -->
+          <nz-divider></nz-divider>
+          <!-- Go to Apps CariLocum Section Start -->
+          <section class="text-center" name="Apps">
+            <a [routerLink]="['/dashboard']" class="btn btn-3">
+              <i nz-icon nzType="search"></i>
+              Find Locum Nearby
+            </a>
+          </section>
+          <!-- Go to Apps CariLocum Section End -->
+          <nz-divider></nz-divider>
+          <!-- Analytics Section Start -->
+          <section class="text-center" name="Analytics">  
+            <div nz-row [nzGutter]="24">
+              <!-- List of Locum Available -->
+              <div nz-col [nzSpan]="12">
+                <nz-card nzHoverable nzTitle="Available Locum">
+                  <h1>xxx</h1>
+                </nz-card>
+              </div>
+              <!-- List of Job Available (Contract/Permanent) -->
+              <div nz-col [nzSpan]="12">
+                <nz-card nzHoverable nzTitle="Available Job (Contract/Permanent)">
+                  <h1>xxx</h1>
+                </nz-card>
+              </div>
+            </div>
+            <br/>
+            <div nz-row [nzGutter]="24">
+              <!-- List of Doctor finding Locum -->
+              <div nz-col [nzSpan]="12">
+                <nz-card nzHoverable nzTitle="Available Locum">
+                  <h1>xxx</h1>
+                </nz-card>
+              </div>
+              <!-- List of Doctor finding Job Permanent/Contract -->
+              <div nz-col [nzSpan]="12">
+                <nz-card nzHoverable nzTitle="Available Job (Contract/Permanent)">
+                  <h1>xxx</h1>
+                </nz-card>
+              </div>
+            </div>          
+            <br/>
+            <div echarts [options]="options" [theme]="theme" class="demo-chart"></div>
+            <br/>
+            <div echarts [options]="options" [theme]="theme" class="demo-chart"></div>
+          </section>
+          <!-- Analytics Section End -->
+          <nz-divider></nz-divider>
+          <!-- Feedback Section Start -->
+          <section name="Feedback">
+            <nz-comment nzAuthor="Han Solo" [nzDatetime]="time">
+              <nz-avatar
+                nz-comment-avatar
+                nzIcon="user"
+                nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              ></nz-avatar>
+              <nz-comment-content>
+                <p>
+                  We supply a series of design principles, practical patterns and high quality design resources (Sketch and
+                  Axure), to help people create their product prototypes beautifully and efficiently.
+                </p>
+              </nz-comment-content>
+            </nz-comment>
+            <nz-comment nzAuthor="Han Solo" [nzDatetime]="time">
+              <nz-avatar
+                nz-comment-avatar
+                nzIcon="user"
+                nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              ></nz-avatar>
+              <nz-comment-content>
+                <p>
+                  We supply a series of design principles, practical patterns and high quality design resources (Sketch and
+                  Axure), to help people create their product prototypes beautifully and efficiently.
+                </p>
+              </nz-comment-content>
+            </nz-comment>
+          </section>
+          <!-- Feedback Section End -->
+          <nz-divider></nz-divider>
+          <!-- Support Us Section Start -->
+          <section class="text-center" name="Support">
+            <h2>We are a nonprofit movement, we are self-initiated, we are driven by the community. It is a platform to help other healthcare staff to find job or locum easily. Please consider helping us so we can continue to run this website 🇲🇾</h2>
+            <button nz-button nzType="primary">Donate to CariLocum.co</button>
+          </section>
+          <!-- Support Us Section End -->
+      </div>
+    </nz-content>
+    <nz-footer>Made by <a href="#"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>
+</nz-layout>
+

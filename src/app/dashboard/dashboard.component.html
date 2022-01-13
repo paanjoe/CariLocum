@@ -1,0 +1,69 @@
+<nz-layout class="layout">
+    <nz-header style="z-index: 1;">
+      <div class="logo"></div>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        <li nz-menu-item>Support CariLocum</li>
+        <li nz-menu-item>About</li>
+        <li nz-menu-item>Contact Us</li>
+      </ul>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <nz-tabset>
+            <nz-tab nzTitle="List View">
+                <button nz-button nzType="primary">Add Locum Job</button>
+                <button nz-button nzType="primary">Add Full-Time Job</button>
+                <button nz-button nzType="primary" style="background-color: rgb(218, 71, 132); border: 0px;">I Need Locum Job</button>
+                <button nz-button nzType="primary" style="background-color: rgb(218, 71, 132); border: 0px;">I Need Full-Time Job</button>
+                <h2>Nearby List:</h2>
+                <nz-input-group [nzSuffix]="suffixIconSearch">
+                    <input type="text" nz-input placeholder="Search Location" />
+                </nz-input-group>
+                  <ng-template #suffixIconSearch>
+                    <i nz-icon nzType="search"></i>
+                  </ng-template>
+                  
+                  <!-- Filter -->
+                  <br/>
+                  <br/>
+                  <div class="table-operations">
+                      <h2> Filters: </h2>
+                    <button nz-button (click)="sortByAge()">Full-Time Job</button>
+                    <button nz-button (click)="resetFilters()">Locum Job</button>
+                    <button nz-button (click)="resetSortAndFilters()">Looking for Job</button>
+                    <button nz-button (click)="resetSortAndFilters()">Looking for Locum</button>
+                    <nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+                  </div>
+                  <nz-table #filterTable [nzData]="listOfData" nzTableLayout="fixed">
+                    <thead>
+                      <tr>
+                        <th
+                          *ngFor="let column of listOfColumns; trackBy: trackByName"
+                          [(nzSortOrder)]="column.sortOrder"
+                          [nzSortFn]="column.sortFn"
+                          [nzFilters]="column.listOfFilter"
+                          [nzFilterFn]="column.filterFn"
+                        >
+                          {{ column.name }}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let data of filterTable.data">
+                        <td>{{ data.name }}</td>
+                        <td>{{ data.age }}</td>
+                        <td>{{ data.address }}</td>
+                      </tr>
+                    </tbody>
+                  </nz-table>
+            </nz-tab>
+            <nz-tab nzTitle="Map View">
+                <div *ngIf="apiLoaded | async">
+                    <google-map width="100%"></google-map>
+                </div>
+            </nz-tab>
+          </nz-tabset>
+      </div>
+    </nz-content>
+    <nz-footer>Made by <a href="#"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>
+</nz-layout>
