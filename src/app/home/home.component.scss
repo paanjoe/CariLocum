@@ -5,9 +5,13 @@
   .logo {
     width: 120px;
     height: 31px;
-    background: rgba(255, 255, 255, 0.2);
+    // background: rgba(255, 255, 255, 0.2);
+    background-image: url("~/src/assets/image/logo.png");
     margin: 16px 24px 16px 0;
     float: left;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: contain; /* Resize the background image to cover the entire container */
   }
 
   nz-header {
@@ -44,7 +48,7 @@
 
   [nz-carousel-content] {
     text-align: center;
-    background-image: url("https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-image: url("~/src/assets/image/PublicHealth.png");
     color: #fff;
     overflow: hidden;
     background-repeat: no-repeat;
@@ -97,32 +101,61 @@
     border: 0px;
    }
   
-  /* Demo Stuff End -> */
-  
-  /* <- Magic Stuff Start */
-  
   .btn:hover {
     background-position: right center; /* change the direction of the change here */
   }
   
-  .btn-1 {
-    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+   .btn-3 {
+    background-image: linear-gradient(to right, #db1270 0%, #c71b8e 51%, #880707 100%);
   }
-  
-  .btn-2 {
-    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2c2 100%);
-  }
-  
-  .btn-3 {
-    background-image: linear-gradient(to right, #db1270 0%, #d78ff4 51%, #6f02b8 100%);
-  }
-  
-  .btn-4 {
-    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
-  }
-  
-  .btn-5 {
-    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
-  }
-  
-  /* Magic Stuff End -> */
+
+ .hero {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("~/src/assets/image/PublicHealth.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    filter: brightness(40%);
+ }
+ .hero-content {
+    position: relative;
+    font-family: "Monserrat", sans-serif;
+    color: white;
+    text-align: center;
+ }
+ .hero-title {
+    font-size: 3rem;
+    font-weight: 600;
+     color: white;
+ }
+ .hero-subtitle {
+    font-size: 2rem;
+    font-weight: 200;
+    color: white;
+ }
+ .hero-button {
+    background-color: #ae2d59;
+    color: white;
+    border: 1px solid #cb376a;
+    margin-top: 5rem;
+    padding: 0.9375rem1.875rem;
+    font-family: "Monserrat", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 200;
+    cursor: pointer;
+ }
+ .hero-button:hover {
+    background-color: #cb376a;
+    border: 1px solid #db7598;
+ }

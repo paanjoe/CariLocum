@@ -1,6 +1,6 @@
 <nz-layout class="layout">
     <nz-header style="z-index: 1;">
-      <div class="logo"></div>
+      <a [routerLink]="['/home']"><div class="logo"></div></a>
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
         <li nz-menu-item>Support CariLocum</li>
         <li nz-menu-item>About</li>
@@ -9,26 +9,25 @@
     </nz-header>
     <nz-content>
       <div class="inner-content">
-          <!-- Carousel Section Start -->
-          <section class="text-center" name="Carousel">
-            <nz-carousel [nzEffect]="effect">
-              <div nz-carousel-content>
-              </div>
-            </nz-carousel>
+          <!-- Hero Section Start -->
+          <section class="text-center hero" name="Carousel">
+            <div class="hero-content">
+              <h1 class="hero-title">
+                   CariLocum
+              </h1>
+              <h2 class="hero-subtitle">
+                   Find locum work or medical staff in Malaysia!
+              </h2>
+              <a [routerLink]="['/dashboard']" class="btn btn-3">
+                <i nz-icon nzType="search"></i>
+                Find Locum Nearby
+              </a>
+           </div>
           </section>
-          <!-- Carousel Section End -->
-          <nz-divider></nz-divider>
-          <!-- Go to Apps CariLocum Section Start -->
-          <section class="text-center" name="Apps">
-            <a [routerLink]="['/dashboard']" class="btn btn-3">
-              <i nz-icon nzType="search"></i>
-              Find Locum Nearby
-            </a>
-          </section>
-          <!-- Go to Apps CariLocum Section End -->
-          <nz-divider></nz-divider>
+          <!-- Hero Section End -->
           <!-- Analytics Section Start -->
-          <section class="text-center" name="Analytics">  
+          <section class="text-center" name="Analytics">
+            <h1 nz-typography>Statistic</h1>
             <div nz-row [nzGutter]="24">
               <!-- List of Locum Available -->
               <div nz-col [nzSpan]="12">
@@ -104,6 +103,6 @@
           <!-- Support Us Section End -->
       </div>
     </nz-content>
-    <nz-footer>Made by <a href="#"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>
+    <nz-footer>Made by <a href="https://www.linkedin.com/in/mohd-farhan-muhamad-fazli-693b7912b/" target="_blank"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>
 </nz-layout>
 

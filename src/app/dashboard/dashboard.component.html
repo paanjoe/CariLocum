@@ -1,14 +1,18 @@
 <nz-layout class="layout">
     <nz-header style="z-index: 1;">
-      <div class="logo"></div>
+      <a [routerLink]="['/home']"><div class="logo"></div></a>
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
         <li nz-menu-item>Support CariLocum</li>
-        <li nz-menu-item>About</li>
+        <li nz-menu-item>About Us</li>
         <li nz-menu-item>Contact Us</li>
       </ul>
     </nz-header>
     <nz-content>
       <div class="inner-content">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item><a [routerLink]="['/home']">Home</a></nz-breadcrumb-item>
+          <nz-breadcrumb-item>Dashboard</nz-breadcrumb-item>
+        </nz-breadcrumb>
         <nz-tabset>
             <nz-tab nzTitle="List View">
                 <button nz-button nzType="primary">Add Locum Job</button>
@@ -65,5 +69,5 @@
           </nz-tabset>
       </div>
     </nz-content>
-    <nz-footer>Made by <a href="#"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>
+    <nz-footer>Made by <a href="https://www.linkedin.com/in/mohd-farhan-muhamad-fazli-693b7912b/" target="_blank"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>
 </nz-layout>

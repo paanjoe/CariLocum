@@ -1,0 +1,16 @@
+
+ID                          : integer           { PRIMARY KEY | UNIQUE }
+JOB_TYPE                    : string            { 1. find_fulltime 2. find_locum 3. need_fulltime 4. need_locum }
+NAME                        : string            { 1. fullname 2. Clinic name }
+WORKER_TYPE                 : string            { 1. Doctor 2. Dentist 3. Nurses 4. Dental Assistant 5. Others (string) }
+RATE                        : string            { 1. per/hr 2. offer }
+TIME_START?                 : time              { This is to show work start time }
+TIME_END?                   : time              { This is to show work end time }
+START_DATE                  : date              { This is to show start date }
+END_DATE                    : date              { This is to show end date }
+ADDRESS_GEOLOCATION         : string            { This is to save geolocation ID from Google Map }
+ADDRESS                     : string            { Street address }
+PHONE                       : string            { Mobile phone number }
+EMAIL                       : string            { Email address }
+DESCRIPTION?                : string            { To explain on the job/individuals }
+ATTACHMENT?                 : blob              { If the user need to attach resumes which is optional }
