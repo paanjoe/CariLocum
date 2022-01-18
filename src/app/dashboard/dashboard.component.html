@@ -2,23 +2,23 @@
     <nz-header style="z-index: 1;">
       <a [routerLink]="['/home']"><div class="logo"></div></a>
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
-        <li nz-menu-item>Support CariLocum</li>
-        <li nz-menu-item>About Us</li>
-        <li nz-menu-item>Contact Us</li>
+        <li nz-menu-item>{{ enum.MENU_BAR.SUPPORT }}</li>
+        <li nz-menu-item>{{ enum.MENU_BAR.ABOUT }}</li>
+        <li nz-menu-item>{{ enum.MENU_BAR.CONTACT }}</li>
       </ul>
     </nz-header>
     <nz-content>
       <div class="inner-content">
         <nz-breadcrumb>
-          <nz-breadcrumb-item><a [routerLink]="['/home']">Home</a></nz-breadcrumb-item>
-          <nz-breadcrumb-item>Dashboard</nz-breadcrumb-item>
+          <nz-breadcrumb-item><a [routerLink]="['/home']">{{ enum.BREADCRUMB.HOME }}</a></nz-breadcrumb-item>
+          <nz-breadcrumb-item>{{ enum.BREADCRUMB.DASHBOARD }}</nz-breadcrumb-item>
         </nz-breadcrumb>
         <nz-tabset>
             <nz-tab nzTitle="List View">
-                <button nz-button nzType="primary">Add Locum Job</button>
-                <button nz-button nzType="primary">Add Full-Time Job</button>
-                <button nz-button nzType="primary" style="background-color: rgb(218, 71, 132); border: 0px;">I Need Locum Job</button>
-                <button nz-button nzType="primary" style="background-color: rgb(218, 71, 132); border: 0px;">I Need Full-Time Job</button>
+                <button nz-button nzType="primary">{{ enum.BUTTON.ADD_JOB }}</button>
+                <button nz-button nzType="primary">{{ enum.BUTTON.ADD_LOCUM }}</button>
+                <button nz-button nzType="primary" style="background-color: rgb(218, 71, 132); border: 0px;">{{ enum.BUTTON.NEED_JOB }}</button>
+                <button nz-button nzType="primary" style="background-color: rgb(218, 71, 132); border: 0px;">{{ enum.BUTTON.NEED_LOCUM }}</button>
                 <h2>Nearby List:</h2>
                 <nz-input-group [nzSuffix]="suffixIconSearch">
                     <input type="text" nz-input placeholder="Search Location" />
@@ -32,21 +32,19 @@
                   <br/>
                   <div class="table-operations">
                       <h2> Filters: </h2>
-                    <button nz-button (click)="sortByAge()">Full-Time Job</button>
-                    <button nz-button (click)="resetFilters()">Locum Job</button>
-                    <button nz-button (click)="resetSortAndFilters()">Looking for Job</button>
-                    <button nz-button (click)="resetSortAndFilters()">Looking for Locum</button>
-                    <nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+                    <button nz-button (click)="filter_fulltime()">{{ enum.FILTER_BUTTON.FULLTIME_JOB }}</button>
+                    <button nz-button (click)="filter_locum()">{{ enum.FILTER_BUTTON.LOCUM_JOB }}</button>
+                    <button nz-button (click)="filter_need_fulltime()">{{ enum.FILTER_BUTTON.NEED_JOB }}</button>
+                    <button nz-button (click)="filter_need_locum()">{{ enum.FILTER_BUTTON.NEED_LOCUM }}</button>
+                    <nz-range-picker [(ngModel)]="date" (ngModelChange)="onSelectedDate($event)"></nz-range-picker>
                   </div>
                   <nz-table #filterTable [nzData]="listOfData" nzTableLayout="fixed">
                     <thead>
                       <tr>
                         <th
-                          *ngFor="let column of listOfColumns; trackBy: trackByName"
+                          *ngFor="let column of listOfColumns"
                           [(nzSortOrder)]="column.sortOrder"
                           [nzSortFn]="column.sortFn"
-                          [nzFilters]="column.listOfFilter"
-                          [nzFilterFn]="column.filterFn"
                         >
                           {{ column.name }}
                         </th>
@@ -69,5 +67,5 @@
           </nz-tabset>
       </div>
     </nz-content>
-    <nz-footer>Made by <a href="https://www.linkedin.com/in/mohd-farhan-muhamad-fazli-693b7912b/" target="_blank"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>
+    <nz-footer>Made by <a href="{{ enum.LINKEDIN.PROFILE_LINK }}" target="_blank"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>
 </nz-layout>

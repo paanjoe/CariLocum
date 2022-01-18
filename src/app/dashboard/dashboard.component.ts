@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from 'ng-zorro-antd/table';
 import { getISOWeek } from 'date-fns';
+import * as Enums from '../helper/enum';
 
 interface ColumnItem {
   name: string;
@@ -19,39 +20,29 @@ interface DataItem {
   address: string;
 }
 
-
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
+
 export class DashboardComponent implements OnInit {
 
-  apiLoaded: Observable<boolean>;
-  date = null;
+  constructor (
+    private httpClient: HttpClient
+    ) { 
+      this.apiLoaded = httpClient.jsonp(this.enum.GMAPS.GMAP_LINK + this.enum.GMAPS.API_KEY, 'callback').pipe(map(() => true), catchError(() => of(false)),);
+    }
 
-  constructor(httpClient: HttpClient) { 
-    this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyAMPfFeRTQ2Jo7aX2MZTnKAWYbQGqd7crg', 'callback')
-        .pipe(
-          map(() => true),
-          catchError(() => of(false)),
-        );
-  }
 
-  ngOnInit(): void {
-
-  }
-
-  onChange(result: Date[]): void {
-    console.log('onChange: ', result);
-  }
-
-  getWeek(result: Date[]): void {
-    console.log('week: ', result.map(getISOWeek));
-  }
-
-  listOfColumns: ColumnItem[] = [
+  // Important Var
+  public enum = Enums;
+  public apiLoaded: Observable<boolean>;
+  public date = null;
+  
+  // Fake Data
+  public listOfColumns: ColumnItem[] = [
     {
       name: 'Name',
       sortOrder: null,
@@ -80,7 +71,8 @@ export class DashboardComponent implements OnInit {
       filterFn: (address: string, item: DataItem) => item.address.indexOf(address) !== -1
     }
   ];
-  listOfData: DataItem[] = [
+  
+  public listOfData: DataItem[] = [
     {
       name: 'John Brown',
       age: 32,
@@ -103,40 +95,38 @@ export class DashboardComponent implements OnInit {
     }
   ];
 
-  trackByName(_: number, item: ColumnItem): string {
-    return item.name;
+
+  ngOnInit(): void {
+
   }
 
-  sortByAge(): void {
-    this.listOfColumns.forEach(item => {
-      if (item.name === 'Age') {
-        item.sortOrder = 'descend';
-      } else {
-        item.sortOrder = null;
-      }
-    });
+  // Start End Date on Change
+  onSelectedDate(result: Date[]): void {
+    console.log('onChange: ', result);
   }
 
-  resetFilters(): void {
-    this.listOfColumns.forEach(item => {
-      if (item.name === 'Name') {
-        item.listOfFilter = [
-          { text: 'Joe', value: 'Joe' },
-          { text: 'Jim', value: 'Jim' }
-        ];
-      } else if (item.name === 'Address') {
-        item.listOfFilter = [
-          { text: 'London', value: 'London' },
-          { text: 'Sidney', value: 'Sidney' }
-        ];
-      }
-    });
+  filter_fulltime() {
+
   }
 
-  resetSortAndFilters(): void {
-    this.listOfColumns.forEach(item => {
-      item.sortOrder = null;
-    });
-    this.resetFilters();
+  filter_locum() {
+
   }
+
+  filter_need_fulltime() {
+
+  }
+
+  filter_need_locum() {
+
+  }
+
+  filter_location() {
+
+  }
+
+  filter_date() {
+    
+  }
+
 }
