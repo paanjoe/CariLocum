@@ -84,3 +84,7 @@ export enum GMAPS {
     GMAP_LINK = 'https://maps.googleapis.com/maps/api/js?key=',
     API_KEY = 'AIzaSyAMPfFeRTQ2Jo7aX2MZTnKAWYbQGqd7crg'
 }
+
+export enum API_LINK {
+    API_LINK = 'http://localhost:3000'
+}

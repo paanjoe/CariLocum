@@ -40,6 +40,7 @@ export class DashboardComponent implements OnInit {
   public enum = Enums;
   public apiLoaded: Observable<boolean>;
   public date = null;
+  public loaded = false;
   
   // Fake Data
   public listOfColumns: ColumnItem[] = [
@@ -97,12 +98,18 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.spinnerTimeout();
   }
 
   // Start End Date on Change
   onSelectedDate(result: Date[]): void {
     console.log('onChange: ', result);
+  }
+
+  spinnerTimeout() {
+    setTimeout(() => {
+      this.loaded = true;
+    }, 500);
   }
 
   filter_fulltime() {

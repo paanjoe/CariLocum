@@ -15,3 +15,7 @@ export interface Locum {
     DESCRIPTION?: string;
     ATTACHMENT?: File;
 }
+
+export interface LocumList extends Array<Locum> {
+
+}

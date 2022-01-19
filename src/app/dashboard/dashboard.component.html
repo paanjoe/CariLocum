@@ -1,4 +1,7 @@
-<nz-layout class="layout">
+<div class="loading" *ngIf="loaded==false">
+  <nz-spin [nzSize]="'large'" nzSimple></nz-spin>
+</div>
+<nz-layout class="layout" *ngIf="loaded==true">
     <nz-header style="z-index: 1;">
       <a [routerLink]="['/home']"><div class="logo"></div></a>
       <ul nz-menu nzTheme="dark" nzMode="horizontal">

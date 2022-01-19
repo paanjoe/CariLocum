@@ -4,6 +4,9 @@ import { CoolTheme } from './CoolTheme';
 import { ThemeOption } from 'ngx-echarts';
 import { Router } from '@angular/router';
 import * as Enums from '../helper/enum';
+import { CarilocumAPIService } from '../services/carilocum-api.service';
+import { Subject, takeUntil } from 'rxjs';
+import { Locum, LocumList } from '../model/locum.interface';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +16,14 @@ import * as Enums from '../helper/enum';
 export class HomeComponent implements OnInit {
 
   constructor (
-    private router: Router
+    private router: Router,
+    private carilocumAPIService: CarilocumAPIService
     ) { }
 
   // Important Var
   public enum = Enums;
+  public destroy$: Subject<boolean> = new Subject<boolean>();
+  public locumList: LocumList = [];
 
   // Fake Data
   public time = formatDistance(new Date(), new Date());
@@ -65,9 +71,14 @@ export class HomeComponent implements OnInit {
   };
   public theme!: string | ThemeOption;
   public coolTheme = CoolTheme;
+
   
   ngOnInit(): void {
-
+    this.carilocumAPIService.getCountLocum().pipe(takeUntil(this.destroy$)).subscribe({
+      next: (data) => {
+        this.locumList = data;
+      }
+    });
   }
 
   /** 
@@ -75,22 +86,27 @@ export class HomeComponent implements OnInit {
   **/
 
   getTotalLocum() {
-    let total: number = 999;
+    let total: number = this.locumList.length;
     return total;
   }
 
   getTotalJob() {
-    let total: number = 999;
+    let total: number = this.locumList.length;
     return total;
   }
 
   getTotalIndJob() {
-    let total: number = 999;
+    let total: number = this.locumList.length;
     return total;
   }
 
   getTotalIndLocum() {
-    let total: number = 999;
+    let total: number = this.locumList.length;
     return total;
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 }
