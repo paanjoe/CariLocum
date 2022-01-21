@@ -3,7 +3,9 @@ import { HttpClient, HttpErrorResponse, HttpHeaderResponse, HttpHeaders } from '
 import { Observable, retry, throwError } from 'rxjs';
 import { catchError } from 'rxjs';
 import * as Enums from '../helper/enum';
-import { Locum, LocumList } from '../model/locum.interface';
+import { Locum } from '../model/locum.interface';
+import { Feedback } from '../model/feedback.interface';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,12 +21,21 @@ export class CarilocumAPIService {
 
   // Variables
   public enum: any = Enums;
-  public locumList: LocumList = [];
+  public locumList: Locum[] = [];
+  public feedbackList: Feedback[] = []
 
 
   // API EndPoint
   getCountLocum(): Observable<any> {
-    return this.httpClient.get(`${this.enum.API_LINK.API_LINK}/main_table`).pipe(retry(3), catchError(this.errorHandler));
+    return this.httpClient.get(this.enum.API_LINK.DOMAIN + this.enum.API_LINK.MAIN_TABLE).pipe(retry(3), catchError(this.errorHandler));
+  }
+  
+  getCommentAll(): Observable<any> {
+    return this.httpClient.get(this.enum.API_LINK.DOMAIN + this.enum.API_LINK.COMMENT).pipe(retry(3), catchError(this.errorHandler));
+  }
+
+  getCommentPagination(page: number, limit: number): Observable<any> {
+    return this.httpClient.get(this.enum.API_LINK.DOMAIN + this.enum.API_LINK.COMMENT + '?_page=' + page + '&_limit=' + limit).pipe(retry(3), catchError(this.errorHandler));
   }
 
 

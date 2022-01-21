@@ -19,6 +19,8 @@ import * as PlotlyJS from 'plotly.js-dist-min';
 import { PlotlyModule } from 'angular-plotly.js';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SupportComponent } from './support/support.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 registerLocaleData(en);
@@ -31,7 +33,9 @@ PlotlyModule.plotlyjs = PlotlyJS;
     AppComponent,
     DashboardComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    SupportComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

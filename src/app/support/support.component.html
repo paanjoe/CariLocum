@@ -1,0 +1,24 @@
+<div class="loading" *ngIf="pageload==false">
+  <nz-spin [nzSize]="'large'" nzSimple></nz-spin>
+</div>
+
+<nz-layout class="layout" *ngIf="pageload==true">
+    <nz-header style="z-index: 1;">
+        <a [routerLink]="['/home']"><div class="logo"></div></a>
+        <ul nz-menu nzTheme="dark" nzMode="horizontal">
+          <li [routerLink]="['/dashboard']" nz-menu-item>{{ enum.MENU_BAR.FINDLOCUM }}</li>
+          <li [routerLink]="['/about']" nz-menu-item>{{ enum.MENU_BAR.ABOUT }}</li>
+          <li nzSelected [routerLink]="['/support']" nz-menu-item>{{ enum.MENU_BAR.SUPPORT }}</li>
+          <li [routerLink]="['/contact']" nz-menu-item>{{ enum.MENU_BAR.CONTACT }}</li>
+        </ul>
+      </nz-header>
+      <nz-content>
+        <div class="inner-content">
+          <nz-breadcrumb>
+            <nz-breadcrumb-item><a [routerLink]="['/home']">{{ enum.BREADCRUMB.HOME }}</a></nz-breadcrumb-item>
+            <nz-breadcrumb-item>{{ enum.BREADCRUMB.SUPPORT }}</nz-breadcrumb-item>
+          </nz-breadcrumb>
+        </div>
+      </nz-content>
+      <nz-footer>Made by <a href="{{ enum.LINKEDIN.PROFILE_LINK }}" target="_blank"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>
+</nz-layout>

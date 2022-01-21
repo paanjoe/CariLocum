@@ -1,1 +1,43 @@
-<p>about works!</p>
+<div class="loading" *ngIf="pageload==false">
+  <nz-spin [nzSize]="'large'" nzSimple></nz-spin>
+</div>
+
+<nz-layout class="layout" *ngIf="pageload==true">
+    <nz-header style="z-index: 1;">
+        <a [routerLink]="['/home']"><div class="logo"></div></a>
+        <ul nz-menu nzTheme="dark" nzMode="horizontal">
+          <li [routerLink]="['/dashboard']" nz-menu-item>{{ enum.MENU_BAR.FINDLOCUM }}</li>
+          <li nzSelected [routerLink]="['/about']" nz-menu-item>{{ enum.MENU_BAR.ABOUT }}</li>
+          <li [routerLink]="['/support']" nz-menu-item>{{ enum.MENU_BAR.SUPPORT }}</li>
+          <li [routerLink]="['/contact']" nz-menu-item>{{ enum.MENU_BAR.CONTACT }}</li>
+        </ul>
+      </nz-header>
+      <nz-content>
+        <div class="inner-content">
+          <nz-breadcrumb>
+            <nz-breadcrumb-item><a [routerLink]="['/home']">{{ enum.BREADCRUMB.HOME }}</a></nz-breadcrumb-item>
+            <nz-breadcrumb-item>{{ enum.BREADCRUMB.ABOUT }}</nz-breadcrumb-item>
+          </nz-breadcrumb>
+          <img nz-image class="banner" src='https://thelorry.com/my/wp-content/uploads/sites/4/2021/03/company-hero.jpg'/>
+          <br/>
+          <br/>
+          <h1 nz-typography class="text-center">{{ enum.ABOUT.TITLE }}</h1>
+          <p nz-typography class="text-center">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis ipsum elementum, ornare nisi eu, gravida tellus. Mauris gravida, dolor non imperdiet bibendum, nibh nisi tincidunt nunc, eu mattis nibh lacus eget velit. Quisque finibus purus velit, nec pretium felis tincidunt a. Donec gravida imperdiet lorem ut porttitor. Sed lacinia mi vehicula, rhoncus massa a, congue leo. Nunc ac ligula et arcu blandit maximus. Proin nec tempor libero, quis eleifend eros.
+          </p>
+          <p>
+            Curabitur nec enim lacus. Vivamus at risus ornare, consectetur felis ut, ultrices lectus. Vivamus egestas eros ac elementum rhoncus. Nulla condimentum neque non risus sollicitudin efficitur vel vel nisl. Sed vitae eleifend lacus, nec gravida augue. Aenean finibus euismod sem, sed mollis nisi dignissim ac. Sed in nisi quis ipsum ornare semper. Aenean pulvinar ante ut convallis pharetra. Morbi condimentum fermentum felis, et ornare diam. Phasellus finibus ullamcorper facilisis. Integer id mi nec erat ultricies iaculis.
+          </p>
+          <nz-divider></nz-divider>
+          <h4 nz-typography style="margin-bottom: 0px;"><mark>Mohd Farhan Muhamad Fazli</mark></h4>
+          <h5 nz-typography style="margin-bottom: 0px; margin-top: 0px;" >Full-Stack Software Developer</h5>
+          <p nz-typography>Creator of <a href="https://www.google.com/" target="_blank"><u>CariLocum</u></a>
+           
+          </p>
+          <span><i nz-icon [nzType]="'smile'" [nzTheme]="'twotone'"></i></span>
+        
+          
+        </div>
+      </nz-content>
+      <nz-footer>Made by <a href="{{ enum.LINKEDIN.PROFILE_LINK }}" target="_blank"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>
+</nz-layout>

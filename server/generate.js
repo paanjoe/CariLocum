@@ -1,9 +1,13 @@
+// Import
 const faker = require('@faker-js/faker');
 
+// Database structure
 var database = { 
-    main_table: []
+    main_table: [],
+    comment: []
 };
 
+// Generate Main Table
 for (var i = 1; i<= 100; i++) {
   database.main_table.push({
     ID: i,
@@ -24,4 +28,16 @@ for (var i = 1; i<= 100; i++) {
   });
 }
 
+// Generate Comment
+for (var i = 1; i<= 20; i++) {
+  database.comment.push({
+    ID: i,
+    COMMENT: faker.lorem.sentence(),
+    BY: faker.name.firstName() + ' ' + faker.name.lastName(),
+    POST_DATE: faker.date.recent(),
+    PROFILE_PICTURE: faker.image.imageUrl(200,200)
+  });
+}
+
+// Write data to json file
 console.log(JSON.stringify(database));

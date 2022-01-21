@@ -1,10 +1,14 @@
-<nz-layout class="layout">
+<div class="loading" *ngIf="pageload==false">
+  <nz-spin [nzSize]="'large'" nzSimple></nz-spin>
+</div>
+<nz-layout class="layout" *ngIf="pageload==true">
     <nz-header style="z-index: 1;">
       <a [routerLink]="['/home']"><div class="logo"></div></a>
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
-        <li nz-menu-item>{{ enum.MENU_BAR.SUPPORT }}</li>
-        <li nz-menu-item>{{ enum.MENU_BAR.ABOUT }}</li>
-        <li nz-menu-item>{{ enum.MENU_BAR.CONTACT }}</li>
+        <li [routerLink]="['/dashboard']" nz-menu-item>{{ enum.MENU_BAR.FINDLOCUM }}</li>
+        <li [routerLink]="['/about']" nz-menu-item>{{ enum.MENU_BAR.ABOUT }}</li>
+        <li [routerLink]="['/support']" nz-menu-item>{{ enum.MENU_BAR.SUPPORT }}</li>
+        <li [routerLink]="['/contact']" nz-menu-item>{{ enum.MENU_BAR.CONTACT }}</li>
       </ul>
     </nz-header>
     <nz-content>
@@ -66,39 +70,31 @@
           <nz-divider></nz-divider>
           <!-- Feedback Section Start -->
           <section name="Feedback">
-            <nz-comment nzAuthor="Han Solo" [nzDatetime]="time">
-              <nz-avatar
-                nz-comment-avatar
-                nzIcon="user"
-                nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              ></nz-avatar>
-              <nz-comment-content>
-                <p>
-                  We supply a series of design principles, practical patterns and high quality design resources (Sketch and
-                  Axure), to help people create their product prototypes beautifully and efficiently.
-                </p>
-              </nz-comment-content>
-            </nz-comment>
-            <nz-comment nzAuthor="Han Solo" [nzDatetime]="time">
-              <nz-avatar
-                nz-comment-avatar
-                nzIcon="user"
-                nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              ></nz-avatar>
-              <nz-comment-content>
-                <p>
-                  We supply a series of design principles, practical patterns and high quality design resources (Sketch and
-                  Axure), to help people create their product prototypes beautifully and efficiently.
-                </p>
-              </nz-comment-content>
-            </nz-comment>
+            <div class="text-center" *ngIf="loaded==false">
+              <nz-spin [nzSize]="'default'" nzSimple></nz-spin>
+            </div>
+            <div *ngIf="loaded==true" >
+              <div *ngFor="let feedback of feedbackList">
+                <nz-comment [nzAuthor]="feedback.BY" [nzDatetime]="feedback.POST_DATE">
+                  <nz-avatar
+                    nz-comment-avatar
+                    nzIcon="user"
+                    [nzSrc]="feedback.PROFILE_PICTURE"
+                  ></nz-avatar>
+                  <nz-comment-content>
+                    <p>{{ feedback.COMMENT }}</p>
+                  </nz-comment-content>
+                </nz-comment>
+              </div>
+              <nz-pagination class="text-center" (nzPageIndexChange)="changePage($event)" [(nzPageIndex)]="this.currentPage" [nzTotal]="this.commentSize"></nz-pagination>
+            </div>    
           </section>
           <!-- Feedback Section End -->
           <nz-divider></nz-divider>
           <!-- Support Us Section Start -->
           <section class="text-center" name="Support">
             <h2>{{ enum.FOOTER.NON_PROFIT_DESCRIPTION }}</h2>
-            <button nz-button nzType="primary">{{ enum.BUTTON.DONATE_BUTTON }}</button>
+            <a [routerLink]="['/support']" nz-button nzType="primary">{{ enum.BUTTON.DONATE_BUTTON }}</a>
           </section>
           <!-- Support Us Section End -->
       </div>

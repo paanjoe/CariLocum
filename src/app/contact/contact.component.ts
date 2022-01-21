@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import * as Enums from '../helper/enum';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class ContactComponent implements OnInit {
 
   constructor() { }
 

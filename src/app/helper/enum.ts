@@ -64,7 +64,8 @@ export enum CARD_TITLE {
 export enum MENU_BAR {
     SUPPORT = 'Support CariLocum',
     ABOUT = 'About',
-    CONTACT = 'Contact Us'
+    CONTACT = 'Contact Us',
+    FINDLOCUM = 'Find Locum'
 }
 
 export enum HERO {
@@ -74,7 +75,7 @@ export enum HERO {
 
 export enum BREADCRUMB {
     HOME = 'Home',
-    DASHBOARD = 'Dashboard',
+    DASHBOARD = 'Find Locum',
     SUPPORT = 'Support Carilocum',
     ABOUT = 'About',
     CONTACT = 'Contact Us'
@@ -86,5 +87,12 @@ export enum GMAPS {
 }
 
 export enum API_LINK {
-    API_LINK = 'http://localhost:3000'
+    DOMAIN = 'http://localhost:3000',
+    MAIN_TABLE = '/main_table',
+    COMMENT = '/comment'
+}
+
+export enum ABOUT {
+    TITLE = 'About CariLocum',
+    PARAGRAPH = 'Lorem ipsum dolor sit amet'
 }
