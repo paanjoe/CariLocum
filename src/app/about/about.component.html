@@ -1,4 +1,4 @@
-<div class="loading" *ngIf="pageload==false">
+<div class="loading" *ngIf="pageload==false">                                 
   <nz-spin [nzSize]="'large'" nzSimple></nz-spin>
 </div>
 
@@ -23,20 +23,38 @@
           <br/>
           <h1 nz-typography class="text-center">{{ enum.ABOUT.TITLE }}</h1>
           <p nz-typography class="text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis ipsum elementum, ornare nisi eu, gravida tellus. Mauris gravida, dolor non imperdiet bibendum, nibh nisi tincidunt nunc, eu mattis nibh lacus eget velit. Quisque finibus purus velit, nec pretium felis tincidunt a. Donec gravida imperdiet lorem ut porttitor. Sed lacinia mi vehicula, rhoncus massa a, congue leo. Nunc ac ligula et arcu blandit maximus. Proin nec tempor libero, quis eleifend eros.
-          </p>
-          <p>
-            Curabitur nec enim lacus. Vivamus at risus ornare, consectetur felis ut, ultrices lectus. Vivamus egestas eros ac elementum rhoncus. Nulla condimentum neque non risus sollicitudin efficitur vel vel nisl. Sed vitae eleifend lacus, nec gravida augue. Aenean finibus euismod sem, sed mollis nisi dignissim ac. Sed in nisi quis ipsum ornare semper. Aenean pulvinar ante ut convallis pharetra. Morbi condimentum fermentum felis, et ornare diam. Phasellus finibus ullamcorper facilisis. Integer id mi nec erat ultricies iaculis.
+            {{ enum.ABOUT.PARAGRAPH }}
           </p>
           <nz-divider></nz-divider>
-          <h4 nz-typography style="margin-bottom: 0px;"><mark>Mohd Farhan Muhamad Fazli</mark></h4>
-          <h5 nz-typography style="margin-bottom: 0px; margin-top: 0px;" >Full-Stack Software Developer</h5>
-          <p nz-typography>Creator of <a href="https://www.google.com/" target="_blank"><u>CariLocum</u></a>
-           
-          </p>
-          <span><i nz-icon [nzType]="'smile'" [nzTheme]="'twotone'"></i></span>
-        
-          
+          <div nz-row>
+            <div nz-col nzSpan="4"><div id="avatar"></div></div>
+            <div nz-col nzSpan="20">
+              <h4 nz-typography style="margin-bottom: 0px;"><mark>{{ enum.ABOUT.NAME_PAAN }}</mark></h4>
+              <h5 nz-typography style="margin-bottom: 0px; margin-top: 0px;">{{ enum.ABOUT.JOB_PAAN }}</h5>
+              <p style="margin-bottom: 0px; margin-top: 0px;" nz-typography>{{ enum.ABOUT.CREATOR }} <u><a href="{{ enum.ABOUT.CARILOCUM_LINK }}" target="_blank">Carilocum</a></u>
+                <br/>
+                <a href="{{ enum.ABOUT.LINKEDIN_PAAN }}" target="_blank"><span style="font-size: 30px; color: #0077b5;"><i class="fab fa-linkedin"></i></span></a>
+              </p>
+              <p nz-typography nzType="secondary">
+                {{ enum.ABOUT.PARA_PAAN }}
+              </p>
+            </div>
+          </div>
+          <br/>
+          <div nz-row>
+            <div nz-col nzSpan="4"><div id="avatar"></div></div>
+            <div nz-col nzSpan="20">
+              <h4 nz-typography style="margin-bottom: 0px;"><mark>{{ enum.ABOUT.NAME_YANA }}</mark></h4>
+              <h5 nz-typography style="margin-bottom: 0px; margin-top: 0px;" >{{ enum.ABOUT.JOB_YANA }}</h5>
+              <p style="margin-bottom: 0px; margin-top: 0px;" nz-typography>{{ enum.ABOUT.ADVISOR }} <a href="{{ enum.ABOUT.CARILOCUM_LINK }}" target="_blank"><u>CariLocum</u></a>
+                <br/>
+                <a href="{{ enum.ABOUT.LINKEDIN_YANA }}" target="_blank"><span style="font-size: 30px; color: #0077b5;"><i class="fab fa-linkedin"></i></span></a>
+              </p>
+              <p nz-typography nzType="secondary">
+                {{ enum.ABOUT.PARA_YANA }}
+              </p>
+            </div>
+          </div>
         </div>
       </nz-content>
       <nz-footer>Made by <a href="{{ enum.LINKEDIN.PROFILE_LINK }}" target="_blank"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>

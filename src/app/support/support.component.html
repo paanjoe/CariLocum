@@ -18,6 +18,16 @@
             <nz-breadcrumb-item><a [routerLink]="['/home']">{{ enum.BREADCRUMB.HOME }}</a></nz-breadcrumb-item>
             <nz-breadcrumb-item>{{ enum.BREADCRUMB.SUPPORT }}</nz-breadcrumb-item>
           </nz-breadcrumb>
+          <br/>
+          <div class="text-center">
+            <img src="../../assets/image/logo.png" alt="Carilocum Logo" style="width: 30%;">
+            <h4 nz-typography style="color: black;">
+              {{ enum.FOOTER.NON_PROFIT_DESCRIPTION }}
+            </h4>
+            <a href="{{ enum.SUPPORT.DONATE_LINK }}" target="_blank" nz-button nzType="primary" nzDanger [nzSize]="'large'">{{ enum.SUPPORT.BTN_DONATE }}</a>
+            <br/><br/>
+            <h5 nz-typography><mark>{{ enum.SUPPORT.THANKS }}</mark></h5>
+          </div>
         </div>
       </nz-content>
       <nz-footer>Made by <a href="{{ enum.LINKEDIN.PROFILE_LINK }}" target="_blank"><b>Farhan Fazli</b></a> and backed by <b>You!</b></nz-footer>

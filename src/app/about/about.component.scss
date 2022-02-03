@@ -175,3 +175,22 @@
     background-color: #cb376a;
     border: 1px solid #db7598;
  }
+
+
+ #avatar {
+  /* This image is 687 wide by 1024 tall, similar to your aspect ratio */
+  background-image: url('https://scontent.fkul8-1.fna.fbcdn.net/v/t1.6435-9/69980685_3492342597457954_980635909504368640_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=5bbPnlpDNFYAX9XmVPA&_nc_ht=scontent.fkul8-1.fna&oh=00_AT87D_gKCJBIFp_Q6oAQI0Mh8_5Vmp-_jNQHqawkutGYlQ&oe=622022AC');
+  
+  /* make a square container */
+  width: 150px;
+  height: 150px;
+
+  /* fill the container, preserving aspect ratio, and cropping to fit */
+  background-size: cover;
+
+  /* center the image vertically and horizontally */
+  background-position: top center;
+
+  /* round the edges to a circle with border radius 1/2 container size */
+  border-radius: 50%;
+}

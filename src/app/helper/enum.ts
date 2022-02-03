@@ -94,5 +94,23 @@ export enum API_LINK {
 
 export enum ABOUT {
     TITLE = 'About CariLocum',
-    PARAGRAPH = 'Lorem ipsum dolor sit amet'
+    PARAGRAPH = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis ipsum elementum, ornare nisi eu, gravida tellus. Mauris gravida, dolor non imperdiet bibendum, nibh nisi tincidunt nunc, eu mattis nibh lacus eget velit. Quisque finibus purus velit, nec pretium felis tincidunt a. Donec gravida imperdiet lorem ut porttitor. Sed lacinia mi vehicula, rhoncus massa a, congue leo. Nunc ac ligula et arcu blandit maximus. Proin nec tempor libero, quis eleifend eros.',
+    JOB_PAAN = 'Full Stack Software Developer',
+    JOB_YANA = 'Dentist',
+    CREATOR = 'Creator of',
+    ADVISOR = 'Advisor of',
+    NAME_PAAN = 'Mohd Farhan Muhamad Fazli',
+    NAME_YANA = 'Nur Liyana Abdul Razak',
+    PARA_PAAN = 'Curabitur nec enim lacus. Vivamus at risus ornare, consectetur felis ut, ultrices lectus. Vivamus egestas eros ac elementum rhoncus. Nulla condimentum neque non risus sollicitudin efficitur vel vel nisl. Sed vitae eleifend lacus, nec gravida augue.',
+    PARA_YANA = 'Curabitur nec enim lacus. Vivamus at risus ornare, consectetur felis ut, ultrices lectus. Vivamus egestas eros ac elementum rhoncus. Nulla condimentum neque non risus sollicitudin efficitur vel vel nisl. Sed vitae eleifend lacus, nec gravida augue.',
+    CARILOCUM_LINK = 'https://google.com/',
+    LINKEDIN_PAAN = 'https://www.linkedin.com/in/mohd-farhan-muhamad-fazli-693b7912b/',
+    LINKEDIN_YANA = 'https://www.linkedin.com/in/mohd-farhan-muhamad-fazli-693b7912b/'
+
+}
+
+export enum SUPPORT {
+    BTN_DONATE = 'Donate to Carilocum',
+    THANKS = 'Thank you for your support!',
+    DONATE_LINK = 'https://google.com/'
 }
